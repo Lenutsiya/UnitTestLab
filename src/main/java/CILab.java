@@ -12,9 +12,17 @@ public class CILab implements CILabInterface {
     }
 
     @Override
-    public boolean detectCapitalUse() {
+    public boolean detectCapitalUse() throws Exception {
+        char[] charArray = this.myString.toCharArray();
+
+        for(char i: charArray){
+            if(!Character.isUpperCase(charArray[i])){
+                return false;
+            }
+        }
 
 
+        throw new Exception("throwing exception");
         return false;
     }
 
