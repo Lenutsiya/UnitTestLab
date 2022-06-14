@@ -13,10 +13,61 @@ public class CILab implements CILabInterface {
 
     @Override
     public boolean detectCapitalUse() {
+        boolean result = false;
+        char[] charArray = this.myString.toCharArray();
+         if(Character.isUpperCase((charArray[0]))) {
+             result = true;
+             for (int i = 1; i < charArray.length; i++){
+                 if (Character.isLowerCase(charArray[i])){
+                     result = true;
+                 }
+                 else {
+                     result = false;
+                     break;
+                 }
+             }
+         }
 
+        if (isLowerCase(this.myString) == true){
+           result = true;
 
-        return false;
+        }
+        if (isUpperCase(this.myString) == true){
+           result = true;
+        }
+        return result;
     }
+    private boolean isLowerCase (String string) {
+        char[] charArray = string.toCharArray();
+        boolean result = false;
+        for( int i = 0; i < charArray.length; i++ ) {
+            if (Character.isLowerCase(charArray[i])) {
+                result = true;
+
+            }
+            else {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+    private boolean isUpperCase (String string) {
+        char[] charArray = string.toCharArray();
+        boolean result = false;
+        for( int i = 0; i < charArray.length; i++ ){
+            if(Character.isUpperCase(charArray[i])){
+               result = true;
+            }
+            else {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
 
 }
 
