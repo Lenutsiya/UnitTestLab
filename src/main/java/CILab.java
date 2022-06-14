@@ -13,49 +13,61 @@ public class CILab implements CILabInterface {
 
     @Override
     public boolean detectCapitalUse() {
+        boolean result = false;
         char[] charArray = this.myString.toCharArray();
          if(Character.isUpperCase((charArray[0]))) {
-             boolean result = false;
+             result = true;
              for (int i = 1; i < charArray.length; i++){
                  if (Character.isLowerCase(charArray[i])){
-                     continue;
-                 }
-                 else {
                      result = true;
                  }
+                 else {
+                     result = false;
+                     break;
+                 }
              }
-             return result;
          }
 
-        if (isLowerCase(this.myString)){
-            return true;
+        if (isLowerCase(this.myString) == true){
+           result = true;
+
         }
-        if (isUpperCase(this.myString)){
-            return true;
+        if (isUpperCase(this.myString) == true){
+           result = true;
         }
-        return false;
+        return result;
     }
     private boolean isLowerCase (String string) {
         char[] charArray = string.toCharArray();
-        for(char i: charArray){
-            if(Character.isLowerCase(charArray[i])){
-                continue;
+        boolean result = false;
+        for( int i = 0; i < charArray.length; i++ ) {
+            if (Character.isLowerCase(charArray[i])) {
+                result = true;
+
             }
-            return  false;
+            else {
+                result = false;
+                break;
+            }
         }
-        return true;
+        return result;
     }
 
     private boolean isUpperCase (String string) {
         char[] charArray = string.toCharArray();
-        for(char i: charArray){
+        boolean result = false;
+        for( int i = 0; i < charArray.length; i++ ){
             if(Character.isUpperCase(charArray[i])){
-                continue;
+               result = true;
             }
-            return  false;
+            else {
+                result = false;
+                break;
+            }
         }
-        return true;
+        return result;
     }
+
 
 }
 
